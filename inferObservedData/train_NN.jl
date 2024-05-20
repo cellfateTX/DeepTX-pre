@@ -50,7 +50,6 @@ function loss_crossentropy(x::AbstractVector, y::AbstractVector,z::AbstractVecto
     Flux.crossentropy(pred, y)
 end
 
-
 mean_val(ŷ) = sum((0:length(ŷ)-1).* ŷ)
 var_val(ŷ) = sum(((0:length(ŷ)-1) .-mean_val(ŷ)).^2 .*ŷ)
 m3(ŷ) = sum(((0:length(ŷ)-1) .-mean_val(ŷ)) .^3 .* ŷ)
@@ -66,9 +65,6 @@ sk_loss(ŷ, y) = (log10(abs(sk_val(ŷ)/y.+0.0001)))^2 +0.00001
 kur_loss(ŷ, y)= (log10(kur_val(ŷ)/y.+0.0001).^2)^2 +0.00001
 bio_loss(ŷ, y) = (log10(bio_val(ŷ)/y.+0.0001).^2)^2 +0.00001
 
-
-
-
 function loss_crossentropy_statical(x::AbstractVector, y::AbstractVector,z::AbstractVector, model)
    
     pred = pred_pdf(model, x, 0:length(y)-1)
@@ -81,15 +77,9 @@ end
 function loss_stats(x::AbstractVector, y::AbstractVector,z::AbstractVector, model)
    
     pred = pred_pdf(model, x, 0:length(y)-1)
-
-
-
-
     mean_loss(pred,z[1])+fano_loss(pred,z[3])+kur_loss(pred,z[5])+bio_loss(pred,z[6])
 
 end
-
-
 
 function loss_hellinger(x::AbstractVector, y::AbstractVector, model)
     pred = pred_pdf(model, x, 0:length(y)-1)

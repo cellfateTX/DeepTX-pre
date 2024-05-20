@@ -9,7 +9,7 @@ threshold=0.14){
 
 calculateBurstIndicator <- function(paramter_data){
   
-  # 计算统计量
+
    paramter_data$tau = paramter_data[,9]/paramter_data[,5] 
   paramter_data$tau_on = paramter_data[,1]/paramter_data[,2] 
   paramter_data$tau_off =paramter_data[,3]/paramter_data[,4] 
@@ -93,7 +93,6 @@ calculate_mean_var <- function(RNA_histogram_DATA,ssa_data_dir) {
                   Px  = RNA_prob_DATA["x1"]
                   mean_val[i] = sum(x*Px)
                   var_val[i] = sum((x-mean_val[i])^2*Px)  
-                  # 以下为计算kl散度
                    }
               else {
                       mean_val[i]=0.001

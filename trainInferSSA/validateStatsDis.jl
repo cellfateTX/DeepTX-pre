@@ -12,7 +12,6 @@ include("constants.jl")
 all_flag = true
 
 @load joinpath(MODELWEIGHT_DIR, "model_stats_prob.jld2") model
-
 @load joinpath(DATA_DIR, "test_GTM.jld2") params_arr_test sim_results_pro_test theo_stats_test
 
 params_arr_test = convert(Vector{Vector{Float32}},params_arr_test)
@@ -42,7 +41,6 @@ theo_NN_stats_df = DataFrame(theo_NN_stats, ["m_NN","fano_NN","skew_NN","kurt_NN
 CSV.write( joinpath(RESULT_DIR, "theo_NN_stats.csv"),theo_NN_stats_df)
 
 # The following code is to calculate the distribution
-
 function save_prob_result(data,file_path)
     df = DataFrame(data,:auto)
     CSV.write(file_path,df)
@@ -74,7 +72,6 @@ if all_flag
     save_prob_result(insert_result_array,joinpath(RESULT_DIR, "distributionResult/ssa_result.csv"))
 end
 
-
 @load joinpath("/public/home/zhjiajun/hzw/academic_code/DeepGTM/data", "test_Toy.jld2") params_arr_test sim_results_pro_test theo_stats_test
 params_arr_test = convert(Vector{Vector{Float32}},params_arr_test)
 sim_results_pro_test = convert(Vector{Vector{Float32}},sim_results_pro_test)
@@ -100,7 +97,6 @@ for i in valid_param_list
     save_prob_result(predicted_result_array,joinpath(RESULT_DIR, "distributionResultFig/NN_predicted_$i.csv"))
 end
     save_prob_result(insert_result_array,joinpath(RESULT_DIR, "distributionResultFig/ssa_result.csv"))
-
 
 i = 2
 simPra = X_test[i]

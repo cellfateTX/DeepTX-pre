@@ -1,5 +1,3 @@
-
-
 filter_gene_by_kl <- function(gene_df,kl_list_data,
                               threshold=0.14){
   gene_names= names(gene_df)
@@ -8,19 +6,14 @@ filter_gene_by_kl <- function(gene_df,kl_list_data,
   return(keep_gene)
 }
 
-
 calculateBurstIndicator <- function(paramter_data){
-  
-  # 计算统计量
   paramter_data$tau = paramter_data[,9]/paramter_data[,5] 
   paramter_data$tau_on = paramter_data[,1]/paramter_data[,2] 
   paramter_data$tau_off =paramter_data[,3]/paramter_data[,4] 
   return(paramter_data)
-  
 }
 
 combineBurstIndicator<- function(gene_estimated_matrix_dmso,gene_estimated_matrix_idu){
-  
   gene_estimated_matrix_dmso$tau_on_idu = gene_estimated_matrix_idu$tau_on
   gene_estimated_matrix_dmso$tau_off_idu = gene_estimated_matrix_idu$tau_off
   gene_estimated_matrix_dmso$bs_idu = gene_estimated_matrix_idu$bs
@@ -30,7 +23,6 @@ combineBurstIndicator<- function(gene_estimated_matrix_dmso,gene_estimated_matri
   gene_estimated_matrix_dmso$tau_idu = gene_estimated_matrix_idu$tau
   gene_estimated_matrix_dmso$var_true_idu = gene_estimated_matrix_idu$var_true
   return(gene_estimated_matrix_dmso)
-  
 }
 
 calculateBurstDistance <- function(gene_estimated_matrix_dmso){
@@ -96,7 +88,6 @@ calculate_mean_var <- function(RNA_histogram_DATA,ssa_data_dir) {
       Px  = RNA_prob_DATA["x1"]
       mean_val[i] = sum(x*Px)
       var_val[i] = sum((x-mean_val[i])^2*Px)  
-      # 以下为计算kl散度
     }
     else {
       mean_val[i]=0.001

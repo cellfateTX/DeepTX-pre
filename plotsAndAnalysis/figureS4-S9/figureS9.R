@@ -19,7 +19,6 @@ gene_estimated_matrix_dmso = read.csv("result/gene_estimated_stats_matrix.csv",r
 gene_estimated_matrix_dmso$CV = gene_estimated_matrix_dmso$var_true/(gene_estimated_matrix_dmso$mean_true^2)
 gene_estimated_matrix_dmso$CV_idu = gene_estimated_matrix_dmso$var_true_idu/(gene_estimated_matrix_dmso$mean_true_idu^2)
 
-
 dash.color = '#63B8FF'
 axis.title.size = 6
 point.size = 0.5
@@ -156,8 +155,6 @@ gene_estimated_matrix_dmso_sub_bf_pos = filterBurstDistance(burst_items[1], gene
 gene_estimated_matrix_dmso_sub_bs_neg = filterBurstDistance(burst_items[2], gene_estimated_matrix_dmso, burst_types[1])
 
 filter_gene = row.names(gene_estimated_matrix_dmso)
-
-
 dash.color = '#63B8FF'
 axis.title.size = 6
 point.size = 0.5
@@ -198,7 +195,6 @@ figureS9E = ggplot(gene_estimated_matrix_dmso[filter_gene,], aes(x = bf, y = bf_
     panel.grid = element_blank()
   )
 figureS9E
-
 
 # BS
 figureS9F = ggplot(gene_estimated_matrix_dmso[filter_gene,], aes(x = bs, y =bs_idu)) +
@@ -243,8 +239,5 @@ figureS9_EF
 
 figureS9 <-
   ggarrange(figureS9A_C,figureS9_EF,ncol = 1,nrow = 2,widths = c(4.4),heights = c(1.4),align = "v")
-  
 figureS9
 ggsave(sprintf('%sfigureS9.pdf',save_figure_dir),width = 4.4,height =2.8)
-
-

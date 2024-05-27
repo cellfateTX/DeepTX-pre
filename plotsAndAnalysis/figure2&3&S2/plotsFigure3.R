@@ -23,7 +23,6 @@ color.feedback <- c( "#547CBE", "#3AA438","#E71419")
 point.color = color.feedback[2]
 theo_NN_estimated_param$bs_bf_dist = abs(log(theo_NN_estimated_param$bs_true /theo_NN_estimated_param$bs_es)) + abs(log(theo_NN_estimated_param$bf_true / theo_NN_estimated_param$bf_es))
 
-
 PC_A = ggplot(theo_NN_estimated_param, aes(x=bs_true, y=bf_true) ) +
 
 geom_point(aes(color = log10(bs_bf_dist ) ),size =0.01,alpha=1)+
@@ -200,4 +199,3 @@ picD
 figure_C = ggarrange(PC_A,picD,ncol = 2, nrow = 1, widths=c(2.1,4.2), heights=c(3.6), align = "v")
 figure_C
 ggsave(str_glue(figure_path,'figure3.pdf'), width = 6.3, height = 2, useDingbats = FALSE)
-

@@ -87,7 +87,6 @@ PC <- ggplot(theo_NN_estimated_param, aes(x = log10(bs_true),y = log10(bs_es)))+
         panel.grid = element_blank()) 
 PC
 
-
 PA = ggplot(valid_loss, aes(x="Valid set", y=loss_hel_sp)) + 
   geom_boxplot(utlier.colour = '#D8D8D8', outlier.size = 0, size = 0.15,)+
   labs(x = "Dataset", y = "Helling distance") + 
@@ -106,7 +105,6 @@ PA = ggplot(valid_loss, aes(x="Valid set", y=loss_hel_sp)) +
         axis.ticks = element_line(size=0.25, lineend = 10),
         panel.grid = element_blank()) 
 PA
-
 
 i=9
 estimated_params_all = load_data(i)
@@ -138,7 +136,6 @@ theme(legend.position= 'none',
         panel.grid = element_blank())
 PE
 
-
 FigureS3_1 = ggarrange(PA,PB,PC, ncol = 3, nrow =1,widths=c(1,1.6,1.6),heights=c(2), labels = c("A","B","C"),align = "hv",
                        font.label = list(size = 12,face = "plain"))
 FigureS3_1
@@ -167,7 +164,6 @@ loss_valid_hel = rbind(df3,df4)
 
 figure2E <- ggplot(loss_valid_hel, aes(x = label,y = loss_hel_sp))+
 geom_boxplot(outlier.colour = '#D8D8D8', outlier.size = 0, size = 0.15, fill = c('#EEEEEE','#db2f2c'), fatten = 1,width=0.3) +
-
   labs(x = "Loss type", y = "Helling distance") + 
   theme_bw() +
   scale_color_manual(values = color.feedback) +
@@ -184,8 +180,3 @@ figure2E
 
 ggsave(str_glue(figure_path,'figure2E.jpg'), width = 1.6, height = 1.2)
 ggsave(str_glue(figure_path,'figure2E.jpg'), width =1.2, height = 1.2)
-
-
-
-
-

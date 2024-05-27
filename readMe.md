@@ -32,7 +32,7 @@ The matlab version information of getStatsData.m script in TraingInferSSA folder
 Employ the Stochastic Simulation Algorithm (SSA) algorithm to generate data and train a neural network capable of solving the mechanism model. Evaluate the performance of both solving and inference of the neural network model on the test set.
 #### Workflow
 * Generate data for the TX model, comprising model parameters and their corresponding stationary distribution. (simulation.jl)
-* Compute statistics, including mean, variance, and bimodal coefficient, relevant to the model parameters. (getStaData.m)
+* Compute statistics, including mean, variance, and bimodal coefficient, relevant to the model parameters. (getStatsData.m)
 * Partition the dataset into training, validation, and test sets for neural network training. (generateNNset.jl)
 * Train the neural network model. (trainSolver.jl)
 * Validate statistics and distribution errors between SSA results and neural network predictions on the test set. (validateStatsDis.jl)

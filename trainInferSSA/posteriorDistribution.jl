@@ -10,8 +10,6 @@ include("train_NN.jl")
 include("utils_GTM.jl")
 include("constants.jl")
 result_dir = joinpath(root_path, "result/synthetic")
-
-
 model_type = "GTM"
 d = 5
 intensity = 1
@@ -21,7 +19,6 @@ logranges = [  1.0 15.0
                 0.01 10.0
                 0.1  400.0
              ]
-
 
 function loss_hellinger_map_baye(x::AbstractVector, model,hist_yobs, tt=tt)
     bufs = zeros(Threads.nthreads())

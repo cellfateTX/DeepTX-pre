@@ -35,7 +35,6 @@ function simulatin_es_parameters(estimated_df,save_dir,seq_depth)
         end
 end
 
-
 function Hierarchical_model(a,seq_depth)
     sample_result = Vector{Int32}() 
     for i in 1:10000
@@ -47,7 +46,6 @@ function Hierarchical_model(a,seq_depth)
     sample_result_prob = calcuPro(sample_result)
     sample_result_prob
 end
-
 
 #---------------verify params of scRNA-seq's distribution  inferred by model and its gillespie result
 

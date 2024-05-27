@@ -225,12 +225,7 @@ P9_E
 gene_estimated_matrix_dmso = read.csv(file = "result/IdUDMSO/dmsoSSADistribution/distribution_55.csv")
 P9_F = plot_distribution(RNA_histogram_DATA,gene_estimated_matrix_dmso,genes_name[55])
 P9_F
-
-
-
 figure9 <-ggarrange(P8_A,P8_B,P8_C,P8_D,P8_E,P8_F,P9_A,P9_B,P9_C,P9_D,P9_E,P9_F,ncol = 3,nrow = 4,widths = 8,heights = 9,align = "v",
                     labels =c("A","B","C","D","E","F","G","H","I","J","K","L"), font.label = list(size = 12, face = "plain"))
 figure9
 ggsave(sprintf( '%sfigureS4.pdf',save_figure_dir),width = 6,height = 7.2,useDingbats = FALSE)
-
-

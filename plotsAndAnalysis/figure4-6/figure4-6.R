@@ -93,7 +93,6 @@ if(data_type_index==1){
 }else if(data_type_index==3){
   drug_type = "5FU"
   dose_type = "50"
-  
 }
 
 setwd("D:/academic_relate_code_two/Nessie-main/DeepTX/plotsAndAnalysis")
@@ -113,9 +112,6 @@ if (dose_type == 10) {
   go_down_file_name = "figure/figureS7G.pdf"
   go_up_file_name = "figure/figure5E.pdf"
   bs_density_file_name = "figure/figure5B.pdf"
-  
-
-  
 } else if (dose_type == 50) {
   stas.all.data.frame = rbind(bs_one_dose.stats, bs_fifty_dose.stats)
   new_df <-
@@ -131,7 +127,6 @@ if (dose_type == 10) {
   go_down_file_name = "figure/figureS9G.pdf"
   go_up_file_name = "figure/figure6D.pdf"
   bs_density_file_name = "figure/figure6A.pdf"
-  
 } else if (dose_type == "IdU") {
   stas.all.data.frame = rbind(bs_dmso.stats, bs_IdU.stats)
   new_df <-
@@ -176,7 +171,6 @@ ggsave(
   useDingbats = FALSE
 )
 
-
 library(edgeR)
 burst_type = "bs"
 if (dose_type == 10) {
@@ -205,7 +199,6 @@ gene1 <- decideTestsDGE(et, p.value = 0.05, lfc = 0)
 summary(gene1)
 df$logpvalue = -log10(df$PValue)
 ggscatter(df, x = "logFC", y = "logpvalue") + theme_bw()
-
 
 df$Group = "normal"
 df$Group[which((df$PValue < 0.05) &
@@ -388,8 +381,6 @@ ggsave(
   useDingbats = FALSE
 )
 
-
-
 # plot density
 # figureF_SA = plot_bs_density(new_df,up.genes)
 # figureF_SA
@@ -417,12 +408,10 @@ gene <- bitr(rownames(df),
              OrgDb = org.Hs.eg.db)
 id_list <- na.omit(id_list)
 
-
 geneList = df$logFC
 names(geneList) = gene$ENTREZID
 
 geneList = sort(geneList, decreasing = T)
-
 ego <- gseGO(
   geneList     = geneList,
   OrgDb        = org.Hs.eg.db,
@@ -450,7 +439,6 @@ if (dose_type == "IdU") {
 } else{
   gesa_cols = row.names(go)
 }
-
 
 library(enrichplot)
 

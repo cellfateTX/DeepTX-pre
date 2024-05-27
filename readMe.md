@@ -35,7 +35,7 @@ Employ the Stochastic Simulation Algorithm (SSA) algorithm to generate data and 
 * Compute statistics, including mean, variance, and bimodal coefficient, relevant to the model parameters. (getStatsData.m)
 * Partition the dataset into training, validation, and test sets for neural network training. (generateNNset.jl)
 * Train the neural network model. (trainSolver.jl)
-* Validate statistics and distribution errors between SSA results and neural network predictions on the test set. (validateStatsDis.jl)
+* Validate statistics and distribution errors between SSA results and neural network predictions on the test set. (validateStatsDist.jl)
 * Employ the neural network model to infer dynamic parameters from the test set data. (inferTestSet.jl)
 * Compute the posterior distribution for the dynamic parameters of the test set. (posteriorDistribution.jl)
 * Conduct stability analysis of model inference. (inferenceRobust.jl)

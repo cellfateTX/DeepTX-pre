@@ -15,7 +15,6 @@ d = 5
 intensity = 1
 result_dir = joinpath(root_path, "result/synthetic")
 
-
 logranges = [  1.0 15.0
                 0.1 10.0
                 1.0 15.0
@@ -44,7 +43,6 @@ function generate_sub_prob(sim_count,sample_size)
     prob_data = convert(Vector{Vector{Float32}},prob_data)
     prob_data
 end
-
 
 sim_type = "tenFold_1"
 nsamples = Int.([ 1e2,5e2,1e3,1.5e3,2e3])
@@ -103,7 +101,5 @@ mean_sim = burst_freq_sim.*burst_size_sim
 paramsArr_matrix = reduce(vcat,transpose.(params_arr_test[1:params_num]))
 paramsArr_statics_matrix_true = [paramsArr_matrix tau_on_true tau_off_true burst_freq_sim burst_size_sim mean_sim]
 theo_NN_estimated_param_true = DataFrame(paramsArr_statics_matrix_true, 
-["ron_true","kon_true","roff_true","koff_true", "mu_true","tau_on_true","tau_off_true","bf_true","bs_true","mean_true"
-])
+["ron_true","kon_true","roff_true","koff_true", "mu_true","tau_on_true","tau_off_true","bf_true","bs_true","mean_true"])
 CSV.write( joinpath(result_dir, "validation/theo_NN_estimated_param_true.csv"),theo_NN_estimated_param_true)
-

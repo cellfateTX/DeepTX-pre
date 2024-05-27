@@ -24,10 +24,9 @@ seurat_scal_dmso_idu = matrix(data = NA, nrow = 27998, ncol = 1556)
 # dmso_idu_cell_gene_matrix=log10(dmso_idu_cell_gene_matrix+1)
 for (i in 1:1556){
   seurat_scal_dmso_idu[,i] = round((((dmso_idu_cell_gene_matrix[,i]*5000)/sum(dmso_idu_cell_gene_matrix[,i]))*10))
-  
 }
-dmso_idu_filter = rowMeans(seurat_scal_dmso_idu) > 1
 
+dmso_idu_filter = rowMeans(seurat_scal_dmso_idu) > 1
 rownames(seurat_scal_dmso_idu) = rownames(dmso_idu_cell_gene_matrix)
 seurat_dmso_mean_var = data.frame(dmso_mean = rowMeans(seurat_scal_dmso_idu[dmso_idu_filter,1:812]), dmso_var = (rowSds(as.matrix(seurat_scal_dmso_idu[dmso_idu_filter,1:812])))^2, dmso_cv = ((rowSds(seurat_scal_dmso_idu[dmso_idu_filter,1:812]))^2)/((rowMeans(seurat_scal_dmso_idu[dmso_idu_filter,1:812]))^2))
 seurat_idu_mean_var = data.frame(idu_mean = rowMeans(seurat_scal_dmso_idu[dmso_idu_filter,813:1556]), idu_var = (rowSds(as.matrix(seurat_scal_dmso_idu[dmso_idu_filter,813:1556])))^2, idu_cv = ((rowSds(seurat_scal_dmso_idu[dmso_idu_filter,813:1556]))^2)/((rowMeans(seurat_scal_dmso_idu[dmso_idu_filter,813:1556]))^2))

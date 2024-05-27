@@ -13,7 +13,6 @@ setwd("D:/academic_relate_code_two/Nessie-main/DeepTX/inferObservedData/data")
 
 filter_data = function(seq_data){
   seq_data_sub = seq_data[,colSums(seq_data>=1)>=1200]
-  
   seq_data_sub = seq_data_sub[rowSums(seq_data_sub>1)>=40,]
   return(seq_data_sub)
 }
@@ -41,17 +40,14 @@ if(data_type == data_type_li[1]) {
   rko.5FU_only.dose.zero = rko.5FU_only.dose.zero[zero_ten_intersect_name,]
   rko.5FU_only.dose.ten = rko.5FU_only.dose.ten[zero_ten_intersect_name,]
   rko.dose.nonZero = rko.5FU_only.dose.ten
-  
 }else if (data_type == data_type_li[2]) {
   zero_type = "doseOne"
-  
   zero_names = row.names(rko.5FU_only.dose.zero)
   fifty_names = row.names(rko.5FU_only.dose.fifty)
   zero_fifty_intersect_name = intersect(zero_names,fifty_names)
   rko.5FU_only.dose.zero = rko.5FU_only.dose.zero[zero_fifty_intersect_name,]
   rko.5FU_only.dose.fifty = rko.5FU_only.dose.fifty[zero_fifty_intersect_name,]
   rko.dose.nonZero = rko.5FU_only.dose.fifty
-
 }else if (data_type == data_type_li[3]) {
   rko.dose.nonZero = rko.5FU_only.dose.hundred
 }
@@ -59,16 +55,14 @@ rko_dose_zero_nonZero = cbind(rko.5FU_only.dose.zero,rko.dose.nonZero)
 
 end_i = dim(rko.5FU_only.dose.zero)[2]
 end_j = dim(rko.5FU_only.dose.zero)[2] + dim(rko.dose.nonZero)[2]
-
 seurat_rko_dose_zero_nonZero = matrix(data = NA, nrow = dim(rko_dose_zero_nonZero)[1], ncol = end_j)
 
 for (i in 1:end_j){
   seurat_rko_dose_zero_nonZero[,i] = round((((rko_dose_zero_nonZero[,i]*2500)/sum(rko_dose_zero_nonZero[,i]))))
   # seurat_rko_dose_zero_nonZero[,i] =rko_dose_zero_nonZero[,i]
-  
 }
-dose_zero_nonZero_filter = (rowMeans(seurat_rko_dose_zero_nonZero) > 1)
 
+dose_zero_nonZero_filter = (rowMeans(seurat_rko_dose_zero_nonZero) > 1)
 rownames(seurat_rko_dose_zero_nonZero) =rownames(rko_dose_zero_nonZero)
 file_name_zero = sprintf("Ten5FU/%s_norm_filter.csv",zero_type)
 file_name_nonZero = sprintf("Ten5FU/%s_norm_filter.csv",data_type)

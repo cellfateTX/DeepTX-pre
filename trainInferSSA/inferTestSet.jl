@@ -33,7 +33,7 @@ function loss_hellinger_map(x::AbstractVector, model,hist_yobs, tt=tt)
     sum(bufs)
 end
 
-# infer the param value of the test set by neural network------------------.
+# infer the param value of the test set by neural network.
 @load joinpath(DATA_DIR, "test_$model_type.jld2") params_arr_test sim_results_pro_test
 @load joinpath(MODELWEIGHT_DIR, "model_stats_prob.jld2") model
 

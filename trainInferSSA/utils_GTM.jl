@@ -8,7 +8,6 @@ function saveMatFile(data,file_path,file_name)
     close(file)
 end
 
-
 function loadMatFile(file_path,var_name)
     
     file = matopen(file_path)
@@ -45,11 +44,9 @@ function calcuPro(data_counts)
             num_index = data_counts[i]+1
             proArr[num_index]=proArr[num_index]+1
         end
-
     end
     proArr=proArr./length(data_counts)
     proArr
-    
 end
 
 # transform the counts data array to probArr

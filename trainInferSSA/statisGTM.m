@@ -65,7 +65,7 @@ bc = ((sk - 1)^2 + 1)/kt;
 statis = [m,cv2,fano,sk,kt,bc];
 end
 
-function c = matnchoosek(n,k) % 二项式系数+0.5再取整
-        g = gammaln(n+1) - gammaln(k+1) - gammaln(n-k+1); % 二项式系数n!/((n–k)! k!)的对数
-        c = floor(exp(g)+.5); % floor向负无穷大四舍五入
+function c = matnchoosek(n,k) 
+        g = gammaln(n+1) - gammaln(k+1) - gammaln(n-k+1);
+        c = floor(exp(g)+.5);
     end

@@ -3,7 +3,6 @@ using SpecialFunctions: logbeta
 using StatsBase, Distributions
 using Base: @kwdef
 include("constants.jl")
-##
 
 # Standard split functionality from the Flux documentation (under "Advanced Model Building")
 struct Split{T}

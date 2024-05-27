@@ -13,7 +13,6 @@ include("../constants.jl")
 
 function simulatin_es_parameters(estimated_df,save_dir,seq_depth)
     if !isdir(save_dir)
-        # 如果文件夹不存在，则创建文件夹
         mkdir(save_dir)
     end
     for i in 1:size(estimated_df)[1]
@@ -48,7 +47,6 @@ function Hierarchical_model(a,seq_depth)
     sample_result_prob
 end
 
-
 #---------------verify params of scRNA-seq's distribution  inferred by model and its gillespie result
 
 idu_path = "doseTen_estimated_model_stats_prob.csv"
@@ -64,4 +62,3 @@ dmso_data_path = joinpath(result_dir,"doseZero_estimated_$MODEL_TYPE.csv")
 dmso_save_path =joinpath(result_dir, "doseZeroSSADistribution/")
 estimated_df = DataFrame(CSV.File(joinpath(dmso_data_path)))[:,1:5]
 simulatin_es_parameters(estimated_df,dmso_save_path,SEQ_DEPTH)
-

@@ -13,7 +13,6 @@ setwd("D:/academic_relate_code_two/Nessie-main/DeepTX/inferObservedData/data")
 
 filter_data = function(seq_data){
   seq_data_sub = seq_data[,colSums(seq_data>=1)>=1200]
-  
   seq_data_sub = seq_data_sub[rowSums(seq_data_sub>1)>=40,]
   return(seq_data_sub)
 }
@@ -44,7 +43,6 @@ if(data_type == data_type_li[1]) {
   
 }else if (data_type == data_type_li[2]) {
   zero_type = "doseOne"
-  
   zero_names = row.names(rko.5FU_only.dose.zero)
   fifty_names = row.names(rko.5FU_only.dose.fifty)
   zero_fifty_intersect_name = intersect(zero_names,fifty_names)

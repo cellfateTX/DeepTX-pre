@@ -104,7 +104,6 @@ P8_B = ggplot(kl_gene_estimated_matrix_doseZero, aes(x = var_val, y = var_true))
   )
 P8_B
 
-
 P8_C <- ggplot(kl_gene_estimated_matrix_doseZero, aes(x = mean_true, fill = as.factor(kl_list))) +
   geom_histogram(bins = 30) + 
   scale_fill_manual(values = c( "#71A1C6","#E26463")) +
@@ -122,7 +121,6 @@ P8_C <- ggplot(kl_gene_estimated_matrix_doseZero, aes(x = mean_true, fill = as.f
 
 P8_C
 
-
 RNA_histogram_DATA = read.table("data/Ten5FU/doseZero_norm_filter.csv",header=T, sep = ',')
 genes_name = names(RNA_histogram_DATA)
 gene_estimated_matrix_idu = read.csv(file = "result/Ten5FU/doseZeroSSADistribution/distribution_1.csv")
@@ -133,7 +131,6 @@ P8_E = plot_distribution(RNA_histogram_DATA,gene_estimated_matrix_idu,genes_name
 gene_estimated_matrix_idu = read.csv(file = "result/Ten5FU/doseZeroSSADistribution/distribution_8.csv")
 P8_F = plot_distribution(RNA_histogram_DATA,gene_estimated_matrix_idu,genes_name[8])
 P8_E
-
 
 doseFifty_kl_df = read.csv( "result/Ten5FU/doseTen_kl.csv", row.names =2) 
 gene_estimated_matrix_doseFifty = read.csv(file = "result/Ten5FU/doseTen_estimated_model_stats_prob.csv", row.names =6)
@@ -210,7 +207,6 @@ P9_C <- ggplot(kl_gene_estimated_matrix_doseFifty, aes(mean_true, fill = as.fact
         panel.grid = element_blank())
 
 P9_C
-
 
 RNA_histogram_DATA = read.table("data/Ten5FU/doseTen_norm_filter.csv",header=T, sep = ',')
 genes_name = names(RNA_histogram_DATA)

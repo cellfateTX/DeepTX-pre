@@ -60,7 +60,6 @@ p_C <- ggplot(theo_NN_stats, aes(x = log10(fano_NN),y = log10(fano_true)))+
 #   labs(x = expression("Log"["10"]*"(DeepTx Fano factor)"), y =expression("Log"["10"]*"(Theo Fano factor)")) + 
   # labs(x = expression("Log"["10"]*"(DeepTX FF)"), y =expression("Log"["10"]*"(Theor. FF)")) + 
   labs(x = "DeepTX", y = "Theoretical") + 
-
   theme_bw() +
   scale_color_manual(values = color.feedback) +
   xlim(0,2.5) +
@@ -87,7 +86,6 @@ p_D <- ggplot(theo_NN_stats, aes(x = log10(bimodcoeff_NN),y = log10(bimodcoeff_t
 #   labs(x = expression(Log[10](DeepTx~bimodal_coeff)), y = expression(Log[10](Theo~bimodal_coeff))) + 
   # labs(x = expression(Log[10](DeepTX~BC)), y = expression(Log[10](Theor.~BC))) + 
   labs(x = "DeepTX", y = "Theoretical") + 
-
   theme_bw() +
   scale_color_manual(values = color.feedback) +
   xlim(-0.7,0.1) +
@@ -124,11 +122,8 @@ plot_distribution <- function(RNA_histogram_DATA,RNA_prob_DATA,col_name, x_label
             axis.text = element_text(size = 6, color = "black"),
             axis.ticks = element_line(size = 0.25, lineend = 10),
             panel.grid = element_blank())
-
-
     return(p_A1)
 }
-
 
 # valid_param_list = [10,21,72,106,114,291]
 i=21
@@ -156,7 +151,6 @@ p_A4 = plot_distribution(RNA_histogram_DATA,RNA_prob_DATA,gene_names[3])
 p_A4
 
 picB_left <- ggarrange(p_A1, p_A2, p_A3, p_A4, ncol = 2, nrow = 2, widths=c(5), heights=c(4), align = "v")
-
 
 # draw the loss Figure
 loss_only_prob = read.csv(file = "lossVal/train_only_prob.csv")

@@ -6,9 +6,7 @@ dash.color = '#63B8FF'
 
 plot_bf_density = function(new_df,filter_gene){
   filter_gene = row.names(new_df)[1:10]
-  
   figureF_SA = ggplot(new_df[filter_gene,], aes(x = bf1, y = bf2)) +                                                    
-    
     stat_density2d(
       geom ="raster",
       aes(fill = ..density..,),
@@ -48,7 +46,6 @@ plot_bf_density = function(new_df,filter_gene){
     )
   return(figureF_SA)
 }
-
 
 plot_bs_density = function(new_df,filter_gene,dose_type="5FU"){
   if(dose_type=="IdU"){

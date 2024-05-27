@@ -21,7 +21,6 @@ logranges = [  1.0 15.0
                 1.0 1.0
              ]
 
-
 prior = Product(Uniform.(logranges[1:d, 1], logranges[1:d, 2]))
 
 function hellinger2(aa, bb)
@@ -102,9 +101,7 @@ gene_exp_dmso = DataFrame(
 estimated_idu = inference_parameters(gene_exp_idu,model)
 estimated_dmso = inference_parameters(gene_exp_dmso,model)
 
-
 estimated_idu = matrix_to_dataframe(estimated_idu,names(gene_exp_idu))
-
 estimated_dmso = matrix_to_dataframe(estimated_dmso,names(gene_exp_idu))
 
 number_col=5

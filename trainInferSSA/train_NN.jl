@@ -31,7 +31,6 @@ function pred_pdf_infe(model, x::AbstractVector, yy)
     mix_nbpdf_2(rr, pp, ww, yy)
 end
 
-
 ## Loss functions
 
 function loss_kldivergence(x::AbstractVector, y::AbstractVector, model)
@@ -75,16 +74,12 @@ function loss_crossentropy_statical(x::AbstractVector, y::AbstractVector,z::Abst
 
 end
 
-
-
 function loss_stats(x::AbstractVector, y::AbstractVector,z::AbstractVector, model)
    
     pred = pred_pdf(model, x, 0:length(y)-1)
     mean_loss(pred,z[1])+fano_loss(pred,z[3])+kur_loss(pred,z[5])+bio_loss(pred,z[6])
 
 end
-
-
 
 function loss_hellinger(x::AbstractVector, y::AbstractVector, model)
     pred = pred_pdf(model, x, 0:length(y)-1)

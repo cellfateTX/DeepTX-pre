@@ -15,7 +15,6 @@ source("utils.R")
 result_dir = "result/IdUDMSO"
 data_dir = "data/IdUDMSO"
 
-
 # load data dmso
 scRNA_dmso = read.table(sprintf("%s/DMSO_norm_filter.csv",data_dir),header=T, sep = ',')
 

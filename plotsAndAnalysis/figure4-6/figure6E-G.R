@@ -41,7 +41,6 @@ z_scores <- es.dif
 z_scores$X1 <- NULL
 z_scores$X2 <- NULL
 
-
 #Merge with annotation data:
 z_scores$SampleID <- rownames(z_scores)
 z_scores$SampleID <- gsub('\\.', '-', z_scores$SampleID)
@@ -51,9 +50,7 @@ anno$QS <- z_scores$Common_score
 rownames(anno) <- rownames(z_scores)
 anno$SampleID <- rownames(anno)
 
-
 save_cell_state_counts_data <- function(counts_data,anno_data,cell_state,file_name){
-
   anno_RKO_state = anno_data[anno_data$quiescence_group %in% cell_state,]
   counts_data_state <- counts_data[,colnames(counts_data) %in% as.character(rownames(anno_RKO_state))]
   write.table(counts_data_state,file_name,row.names=TRUE,col.names=TRUE,sep=",")
@@ -82,7 +79,6 @@ colnames(UMAP_coordinates) <- c("UMAP1","UMAP2")
 UMAP_coordinates$Sample <- rownames(UMAP_coordinates)
 UMAP_coordinates_D0 <- merge(UMAP_coordinates, anno,
                              by.x = "Sample", by.y = "SampleID")
-
 
 #Dose 10
 anno_RKO <- anno[anno$df.gid %in% "RKO",]
@@ -134,8 +130,6 @@ p1 = ggplot(UMAP_coordinates, aes(x=UMAP1, y=UMAP2, colour = QS)) +
   geom_point(size = 0.2) +
   scale_color_gradient2(low = colors[1], mid = colors[2], high = colors[3], midpoint = median(UMAP_coordinates$QS)) + theme_classic() + facet_wrap(~dose,nrow = 1)
 p1
-# ggsave('Figures/GSE149224_UMAP_RKO2.pdf', width = 9, height = 3, useDingbats = FALSE)
-
 
 anno$CellStatus <- sapply(anno$QS, function(x)
   ifelse(x < 0, "Proliferating","Quiescent"))
@@ -203,7 +197,6 @@ if(gene_type == "downregulated_quiescence"){
   quiescence.genes = Reduce(intersect, list(bs_zero_dose$gene_name,bs_fifty_dose$gene_name, bs_ten_dose$gene_name))
 }
 
-
 quiescence.genes = setdiff(quiescence.genes,"SRRM1")
 bs_zero_dose.quiescence <- bs_zero_dose[bs_zero_dose$gene_name %in% quiescence.genes,]
 bs_ten_dose.quiescence <- bs_ten_dose[bs_ten_dose$gene_name %in% quiescence.genes,]
@@ -235,7 +228,6 @@ picC = ggarrange(picB,p3, ncol = 2, nrow =1,widths=c(4,4), heights=c(4,4), align
 picC
 ggsave(figure_file_name, width = 7, height = 1.8, useDingbats = FALSE)
 
-
 figure_file_name = sprintf ("Figures/%s_genes_bs_bf_compare_cell_state_0_0.pdf",gene_type)
 # stas.all.data.frame = rbind(bs_zero_dose.stats,bs_ten_dose.stats,bs_fifty_dose.stats)
 stas.all.data.frame = rbind(bs_zero_dose.stats,bs_ten_dose.stats)
@@ -265,14 +257,9 @@ p <- ggboxplot(stas.all.data.frame, x = "CellState", y = "Value",width=0.5,size=
 #                color = "Dose", palette = "jco", short.panel.labs = FALSE,outlier.size=0.1)
 
 p + stat_compare_means(label = "p.format") + facet_wrap(~sta.type, nrow = 1)+font_theme
-
 ggsave(figure_file_name, width = 6, height = 2.5, useDingbats = FALSE)
 
-
 figure_file_name = sprintf ("D:/academic_relate_code_two/Nessie-main/DeepGTM/analyseScRNAdata/Fifty5FU/%s_genes_bs_compare_cell_state_0_50.pdf",gene_type)
-
-
-
 stas.all.data.frame = stas.all.data.frame[!(stas.all.data.frame$sta.type %in% "BF"),]
 p3 = ggpaired(stas.all.data.frame, x = "CellState", y = "Value",
               outlier.size = 0.2,

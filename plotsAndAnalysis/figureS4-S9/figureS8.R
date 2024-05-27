@@ -69,8 +69,6 @@ kl_gene_estimated_matrix_doseZero = merge(doseZero_kl_df,gene_estimated_matrix_d
 kl_gene_estimated_matrix_doseZero[which(kl_gene_estimated_matrix_doseZero$kl_list <= 0.1),"kl_list"] <-0
 kl_gene_estimated_matrix_doseZero[which(kl_gene_estimated_matrix_doseZero$kl_list > 0.1),"kl_list"] <-1
 
-
-
 P8_A = ggplot(kl_gene_estimated_matrix_doseZero, aes(x = mean_val, y = mean_true)) +                                               
   geom_point( color = point.color,shape = 16,size = point.size,alpha = 1,) +
   geom_abline(slope = 1,color = 'blue',linetype = "dashed") +
@@ -120,7 +118,6 @@ P8_B = ggplot(kl_gene_estimated_matrix_doseZero, aes(x = var_val, y = var_true))
   )
 P8_B
 
-
 P8_C <- ggplot(kl_gene_estimated_matrix_doseZero, aes(x = mean_true, fill = as.factor(kl_list))) +
   geom_histogram(bins = 30) + 
   scale_fill_manual(values = c( "#71A1C6","#E26463")) +
@@ -135,7 +132,6 @@ P8_C <- ggplot(kl_gene_estimated_matrix_doseZero, aes(x = mean_true, fill = as.f
         axis.text = element_text(size = axis.text.fontSize, color = "black"),
         axis.ticks = element_line(size = 0.25, lineend = 10),
         panel.grid = element_blank())
-
 P8_C
 
 RNA_histogram_DATA = read.table("data/Fifty5FU/doseOne_norm_filter.csv",header=T, sep = ',')
@@ -148,13 +144,11 @@ P8_E = plot_distribution(RNA_histogram_DATA,gene_estimated_matrix_idu,genes_name
 gene_estimated_matrix_idu = read.csv(file = "result/Fifty5FU/doseOneSSADistribution/distribution_8.csv")
 P8_F = plot_distribution(RNA_histogram_DATA,gene_estimated_matrix_idu,genes_name[8])
 
-
 doseFifty_kl_df = read.csv( "result/Fifty5FU/doseFifty_kl.csv",, row.names =2) 
 gene_estimated_matrix_doseFifty = read.csv(file = "result/Fifty5FU/doseFifty_estimated_model_stats_prob.csv", row.names =6)
 kl_gene_estimated_matrix_doseFifty=merge(doseFifty_kl_df,gene_estimated_matrix_doseFifty,by.x = 0, by.y = 0)
 kl_gene_estimated_matrix_doseFifty[which(kl_gene_estimated_matrix_doseFifty$kl_list <= 0.1),"kl_list"] <-0
 kl_gene_estimated_matrix_doseFifty[which(kl_gene_estimated_matrix_doseFifty$kl_list > 0.1),"kl_list"] <-1
-
 
 P9_A = ggplot(kl_gene_estimated_matrix_doseFifty, aes(x = mean_val, y = mean_true)) +                                               
   geom_point(color = point.color,shape = 16,size = point.size, alpha = 1,) +
@@ -221,7 +215,6 @@ P9_C <- ggplot(kl_gene_estimated_matrix_doseFifty, aes(x = mean_true, fill = as.
         panel.grid = element_blank())
 
 P9_C
-
 
 RNA_histogram_DATA = read.table("data/Fifty5FU/doseFifty_norm_filter.csv",header=T, sep = ',')
 genes_name = names(RNA_histogram_DATA)

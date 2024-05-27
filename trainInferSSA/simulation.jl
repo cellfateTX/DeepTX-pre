@@ -11,20 +11,16 @@ include("GTMSSA.jl")
 include("utils_GTM.jl")
 include("constants.jl")
 
-
-
 # The Mat parameter is used to verify the effectiveness of the algorithm.
 data_path = joinpath(root_path, "data/simulationData")
 
 sim_type = "GTM"
 sobel_flag = true
 
-
 sim_size = 20
 train_rate = 0.8
 valid_rate = 0.1
 test_rate = 0.1
-
 # Parameter range of algorithm simulation
 ranges = [  1.0 15.0
             0.1 10.0
@@ -60,5 +56,4 @@ end
 
 #Store simulation parameters and use them to calculate theoretical statistical values ​​in matlab code
 saveMatFile(sim_param_results,joinpath(DATA_DIR, "params_$sim_type.mat"),"sim_params$sim_type")
-
 @save joinpath(DATA_DIR, "params_prob_$sim_type.jld2") sim_param_results sim_prob_results

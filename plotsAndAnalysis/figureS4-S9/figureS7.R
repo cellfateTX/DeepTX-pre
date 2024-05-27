@@ -119,7 +119,6 @@ figureS7A_C <-
             font.label = list(size = 12, face = "plain")
   )
 
-
 #plot busrt density 
 colormap<- rev(brewer.pal(9,"Blues")[1:6])
 theme_pubr_new = function() {
@@ -147,7 +146,6 @@ gene_estimated_matrix_dmso_sub_bf_pos = filterBurstDistance(burst_items[1], gene
 gene_estimated_matrix_dmso_sub_bs_neg = filterBurstDistance(burst_items[2], gene_estimated_matrix_dmso, burst_types[1])
 
 filter_gene = row.names(gene_estimated_matrix_dmso)
-
 
 figureS7E = ggplot(gene_estimated_matrix_dmso[filter_gene,], aes(x = bf, y = bf_idu)) +                                                    
   
@@ -186,8 +184,6 @@ figureS7E = ggplot(gene_estimated_matrix_dmso[filter_gene,], aes(x = bf, y = bf_
   )
 figureS7E
 
-
-
 # BS
 figureS7F = ggplot(gene_estimated_matrix_dmso[filter_gene,], aes(x = bs, y =bs_idu)) +
   stat_density2d(
@@ -220,8 +216,6 @@ figureS7F = ggplot(gene_estimated_matrix_dmso[filter_gene,], aes(x = bs, y =bs_i
     axis.ticks = element_line(size = 0.25, lineend = 10),
     panel.grid = element_blank()
   )
-
-
 figureS7F
 
 figureS7_EF <-
@@ -236,8 +230,3 @@ figureS7 <-
   
 figureS7
 ggsave(sprintf('%sfigureS7.pdf',save_figure_dir),width = 4.4,height =2.8)
-
-
-
-
-

@@ -2,8 +2,6 @@ using Distributions, StatsBase
 using SpecialFunctions
 using Printf
 
-##
-
 """ 
 Specialised type for negative binomial mixtures using the Distributions.jl interface
 """

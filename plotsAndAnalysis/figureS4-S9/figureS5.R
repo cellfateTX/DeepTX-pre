@@ -24,7 +24,6 @@ gene_estimated_matrix_dmso = read.csv("result/gene_estimated_stats_matrix.csv",r
 gene_estimated_matrix_dmso$CV = gene_estimated_matrix_dmso$var_true/(gene_estimated_matrix_dmso$mean_true^2)
 gene_estimated_matrix_dmso$CV_idu = gene_estimated_matrix_dmso$var_true_idu/(gene_estimated_matrix_dmso$mean_true_idu^2)
 
-
 filter_gene = row.names(gene_estimated_matrix_dmso)
 dash.color = '#691318'
 point.size = 0.1
@@ -62,7 +61,6 @@ figureS5A = ggplot(gene_estimated_matrix_dmso[filter_gene,], aes(x = mean_true, 
     axis.ticks = element_line(size = 0.25, lineend = 10),
     panel.grid = element_blank()
   )
-
 
 # variance
 figureS5B = ggplot(gene_estimated_matrix_dmso[filter_gene,], aes(x = var_true, y =var_true_idu)) +
@@ -130,7 +128,6 @@ figureS5A_C <-
             font.label = list(size = 12, face = "plain")
   )
 figureS5A_C
-
 
 colormap<- rev(brewer.pal(9,"Blues")[1:6])
 # plot density of burst size and burst frequncy
@@ -207,8 +204,6 @@ FigureS5_E = ggplot(gene_estimated_matrix_dmso[filter_gene,], aes(x = bs, y = bs
     panel.grid = element_blank()
   )
 FigureS5_E
-
-
 
 FigureS5_F = ggplot(gene_estimated_matrix_dmso[filter_gene,], aes(x = bf, y =bf_idu)) +
   #   geom_point(color = point.color,shape = 16,size = point.size,alpha = 0.5) +

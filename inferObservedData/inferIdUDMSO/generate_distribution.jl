@@ -49,7 +49,6 @@ end
 
 
 #---------------verify params of scRNA-seq's distribution  inferred by model and its gillespie result
-
 idu_path = "idu_estimated_model_stats_prob.csv"
 idu_save_path =joinpath(RESULT_DIR, "iduSSADistribution/")
 
@@ -63,4 +62,3 @@ dmso_data_path = joinpath(result_dir,"dmso_estimated_$MODEL_TYPE.csv")
 dmso_save_path =joinpath(result_dir, "dmsoSSADistribution/")
 estimated_df = DataFrame(CSV.File(joinpath(dmso_data_path)))[:,1:5]
 simulatin_es_parameters(estimated_df,dmso_save_path,SEQ_DEPTH)
-
